@@ -58,8 +58,17 @@ public class Comercio {
      * @return Um vetor com os produtos carregados, ou vazio em caso de problemas de leitura.
      */
     static Produto[] lerProdutos(String nomeArquivoDados) {
-        Produto[] vetorProdutos;
-        //TO DO
+        Produto[] vetorProdutos = null;
+        try(Scanner scan = new Scanner(new File(nomeArquivoDados), Charset.forName("UTF-8"))){
+                int qtdLinhas = scan.nextInt();
+                for (int i=0; i<qtdLinhas; i++) {
+                String linha = scan.nextLine();
+                Produto novoProduto = Produto.criarDoTexto(linha);
+                vetorProdutos[i] = novoProduto;
+                }
+            }catch (IOException e) {
+            System.out.println("Arquivo não encontrado: " + e.getMessage());
+        }
         return vetorProdutos;
     }
 
