@@ -95,7 +95,11 @@ public class Comercio {
      * Uma sugestão de melhoria mais significativa poderia ser o uso de padrão Factory Method para criação dos objetos.
      */
     static void cadastrarProduto(){
-        //TO DO
+        if(produtosCadastrados.length>MAX_NOVOS_PRODUTOS){
+            System.out.println("Número máximo de Produtos Cadastrados!!");
+        }else{
+            int numProx = produtosCadastrados.length;
+        }
     }
 
     /**
